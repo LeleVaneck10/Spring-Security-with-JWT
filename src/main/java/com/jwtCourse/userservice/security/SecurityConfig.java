@@ -38,11 +38,13 @@ public class SecurityConfig {
     http.csrf().disable();
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     http.authorizeHttpRequests().anyRequest().permitAll();
-    http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
-    }
-
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
+//    http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
+        return http.build();
 
     }
+
+//    @Bean
+//    public WebSecurityCustomizer webSecurityCustomizer() {
+//
+//    }
 }
