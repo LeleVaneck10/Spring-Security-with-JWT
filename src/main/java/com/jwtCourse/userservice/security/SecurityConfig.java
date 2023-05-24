@@ -1,5 +1,6 @@
 package com.jwtCourse.userservice.security;
 
+import com.jwtCourse.userservice.filter.CustomAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,7 +38,7 @@ public class SecurityConfig {
     http.csrf().disable();
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     http.authorizeHttpRequests().anyRequest().permitAll();
-    http.addFilter(null);
+    http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
     }
 
     @Bean
